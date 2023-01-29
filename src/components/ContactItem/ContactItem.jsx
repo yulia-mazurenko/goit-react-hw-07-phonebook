@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import { AiFillDelete } from 'react-icons/ai';
 import { IoMdContact } from 'react-icons/io';
 
+import { deleteContact } from '../../redux/features/contacts/contactsOperations';
+
 import { ListItem, Wrapper, DeleteButton, Text } from './ContactItem.styled';
 
-const ContactItem = ({ contactName, number, id, onDeleteContact }) => {
+const ContactItem = ({ contactName, number, id }) => {
   const dispatch = useDispatch();
 
   return (
@@ -17,7 +19,7 @@ const ContactItem = ({ contactName, number, id, onDeleteContact }) => {
           <Text>{number}</Text>
         </div>
       </Wrapper>
-      <DeleteButton type="button" onClick={() => dispatch(onDeleteContact(id))}>
+      <DeleteButton type="button" onClick={() => dispatch(deleteContact(id))}>
         <AiFillDelete width="20px" height="20px" />
       </DeleteButton>
     </ListItem>
@@ -30,5 +32,4 @@ ContactItem.propTypes = {
   contactName: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  onDeleteContact: PropTypes.func.isRequired,
 };

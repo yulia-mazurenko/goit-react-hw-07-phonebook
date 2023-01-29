@@ -7,10 +7,7 @@ import {
   getErrorStatus,
 } from '../../redux/features/contacts/selectors';
 import { useEffect } from 'react';
-import {
-  fetchContacts,
-  deleteContact,
-} from '../../redux/features/contacts/contactsOperations';
+import { fetchContacts } from '../../redux/features/contacts/contactsOperations';
 import { Loader } from '../Loader/Loader';
 import { Error } from 'components/Error/Error';
 
@@ -29,13 +26,7 @@ const ContactList = () => {
     <>
       <ul>
         {filteredFriends?.map(({ name, number, id }) => (
-          <ContactItem
-            key={id}
-            id={id}
-            contactName={name}
-            number={number}
-            onDeleteContact={deleteContact}
-          />
+          <ContactItem key={id} id={id} contactName={name} number={number} />
         ))}
       </ul>
 
