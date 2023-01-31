@@ -6,5 +6,5 @@ export const selectFilteredContacts = state => {
   });
 };
 
-export const getLoadingStatus = state => state.contacts.contacts.isLoading;
-export const getErrorStatus = state => state.contacts.contacts.error;
+export const selectLoadingStatus = state => state.contacts.contacts.isLoading;
+export const selectErrorStatus = state => state.contacts.contacts.error;

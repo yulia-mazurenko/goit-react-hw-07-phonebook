@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import ContactItem from '../ContactItem/ContactItem';
 import {
   selectFilteredContacts,
-  getLoadingStatus,
-  getErrorStatus,
+  selectLoadingStatus,
+  selectErrorStatus,
 } from '../../redux/features/contacts/selectors';
 import { useEffect } from 'react';
 import { fetchContacts } from '../../redux/features/contacts/contactsOperations';
@@ -13,8 +13,8 @@ import { Error } from 'components/Error/Error';
 
 const ContactList = () => {
   const filteredFriends = useSelector(selectFilteredContacts);
-  const isLoading = useSelector(getLoadingStatus);
-  const error = useSelector(getErrorStatus);
+  const isLoading = useSelector(selectLoadingStatus);
+  const error = useSelector(selectErrorStatus);
 
   const dispatch = useDispatch();
 
